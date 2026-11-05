@@ -5,6 +5,15 @@
 
 // TODO: your code here
 (function () {
+    
+    function updateCounter() {
+    let count = document.querySelectorAll(
+"#todo-list li:not(.completed)"
+    ).length;
+
+    document.getElementById("counter").textContent =
+        count + (count == 1 ? " item left" : " items left");
+}
 function add(e){
     e.preventDefault();
 
@@ -78,14 +87,7 @@ function showDone() {
     }
 }
 
-function updateCounter() {
-    let count = document.querySelectorAll(
-"#todo-list li:not(.completed)"
-    ).length;
 
-    document.getElementById("counter").textContent =
-        count + (count == 1 ? " item left" : " items left");
-}
 
 document.getElementById("todo-form").addEventListener("submit",add);
 document.getElementById("todo-list").addEventListener("click", toggle);
